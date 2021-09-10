@@ -8,5 +8,12 @@ by Xian Fang, Jinchao Zhu, Ruixun Zhang, Xiuli Shao, Hongpeng, Wang
 ## BibTeX
 If you find this work is helpful, please cite our paper:
 ```text
-
+@article{Fang2021IBNet,
+  title={{IBNet: Interactive branch network for salient object detection}},
+  author={Fang, Xian and Zhu, Jinchao and Zhang, Ruixun and Shao, Xiuli and Wang, Hongpeng},
+  journal={Neurocomputing},
+  volume={},
+  pages={},
+  year={2021}
+}
 ```
