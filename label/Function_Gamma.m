@@ -1,5 +1,3 @@
-%% ËùÌáµÄGamma(x)
-
 function y = Function_Gamma(x)
 
 %%
@@ -15,5 +13,7 @@ alpha = 0.3;
 % alpha = 999999;
 %%
 
+%%
 beta = 4/pi*atan(1/alpha);
 y = alpha/2*tan(pi*beta/2*(x-1/2))+1/2;
+%%

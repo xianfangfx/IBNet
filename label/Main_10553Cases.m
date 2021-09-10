@@ -1,7 +1,6 @@
-%% 所提的新方法在10553张图片上的结果
-
 clc, clear, close all;
 
+%%
 tic;
 DataDir = fullfile('Data\DUTS-TR\Mask\');
 OtpDir1 = fullfile('Output\DUTS-TR\body1-origin\');
@@ -26,19 +25,13 @@ for k = 1:1:10553
     FileName = FileNames{1,k};
     FigureName = strcat(DataDir,FileName);
     Mask = imread(FigureName);
-    %%
-    Mask = im2double(Mask);  %% 前 (默认)
-   %%
+    Mask = im2double(Mask);
     filename = FileName;
     path1 = fullfile(OtpDir1,filename);
     path2 = fullfile(OtpDir2,filename);
     path3 = fullfile(OtpDir3,filename);
     path4 = fullfile(OtpDir4,filename);
-    %%
-    Blur = Mask;  %% 不模糊化 (默认)
-    %%
-%     Blur = imfilter(Mask,fspecial('average',[5 5]),'replicate');  %% 模糊化
-    %%
+    Blur = Mask;
     Blur = ~Blur;
     DistTrans = bwdist(Blur,'euclidean');
     Power = DistTrans.^0.5;
@@ -47,32 +40,12 @@ for k = 1:1:10553
     ConvertWB = Normalization;
     for i = 1:size(Normalization,1)
         for j = 1:size(Normalization,2)
-           %% 方法1
-%             ConvertSB(i,j) = Function_Theta(Mask(i,j).*Normalization(i,j));  %% Strengthened
-%             ConvertWB(i,j) = Function_Gamma(Mask(i,j).*Normalization(i,j));  %% Weakened
-           %% 方法2
-%             ConvertSB(i,j) = Function_Theta(Normalization(i,j));  %% Strengthened
-%             ConvertWB(i,j) = Function_Gamma(Normalization(i,j));  %% Weakened
-           %% 方法3 (默认)
-            ConvertSB(i,j) = Normalization(i,j).*Function_Theta(Normalization(i,j));  %% Strengthened
-            ConvertWB(i,j) = Normalization(i,j).*Function_Gamma(Normalization(i,j));  %% Weakened
+            ConvertSB(i,j) = Normalization(i,j).*Function_Theta(Normalization(i,j));
+            ConvertWB(i,j) = Normalization(i,j).*Function_Gamma(Normalization(i,j));
         end
     end
-    %%
-%     Mask = im2double(Mask);  %% 后
-    %%
     ConvertSB = im2double(ConvertSB);
     ConvertWB = im2double(ConvertWB);
-    %% 不鲁棒
-%     SB = ConvertSB;
-%     WB = ConvertWB;
-%     SD = Mask-ConvertSB;
-%     WD = Mask-ConvertWB;
-%     imwrite(SB,path1);
-%     imwrite(WB,path2);
-%     imwrite(SD,path3);
-%     imwrite(WD,path4);
-    %% 鲁棒 (默认)
     SB = Mask.*ConvertSB;
     WB = Mask.*ConvertWB;
     SD = Mask-Mask.*ConvertSB;
@@ -83,3 +56,4 @@ for k = 1:1:10553
     imwrite(WD,path4);
 end
 toc;
+%%

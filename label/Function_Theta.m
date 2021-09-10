@@ -1,5 +1,3 @@
-%% ËùÌáµÄTheta(x)
-
 function y = Function_Theta(x)
 
 %%
@@ -15,5 +13,7 @@ alpha = 0.3;
 % alpha = 999999;
 %%
 
+%%
 beta = 4/pi*atan(1/alpha);
 y = 2/pi/beta*atan(2/alpha*(x-1/2))+1/2;
+%%
