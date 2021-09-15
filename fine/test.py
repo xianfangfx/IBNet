@@ -14,7 +14,7 @@ sys.dont_write_bytecode = True
 
 class Test(object):
     def __init__(self, Dataset, Network, Path):
-        self.cfg = Dataset.Config(datapath=Path, snapshot='./out/model-40', mode='test')
+        self.cfg = Dataset.Config(datapath=Path, snapshot='./out/model-48', mode='test')
         self.data = Dataset.Data(self.cfg)
         self.loader = DataLoader(self.data, batch_size=1, shuffle=False, num_workers=8)
         self.net = Network(self.cfg)
