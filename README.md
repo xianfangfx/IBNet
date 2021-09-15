@@ -2,8 +2,8 @@
 by Xian Fang, Jinchao Zhu, Ruixun Zhang, Xiuli Shao, Hongpeng, Wang
 
 ## Related Links
-- Saliency maps: [百度网盘](https://pan.baidu.com/) (提取码: )
-- Trained model: [百度网盘](https://pan.baidu.com/) (提取码: )
+- Saliency maps: [百度网盘](https://pan.baidu.com/s/1qFnFYr99eiib5nhrQQw0bw) (提取码: utfb)
+- Trained model: [百度网盘](https://pan.baidu.com/s/13HPgLz6kepGhEGPHTsUFhw) (提取码: imht)
 
 ## BibTeX
 If you find this work is helpful, please cite our paper:
